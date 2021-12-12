@@ -1,2 +1,2 @@
-# dgs.js
-The NPM package for interacting with the Discord Guardian System
+# GuardianJS
+An NPM package for interacting with the Discord Guardian System API
