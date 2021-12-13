@@ -1,4 +1,10 @@
 import getReports from "./src/getReports.js"
-export default {
-  getReports: getReports
+class Guardian{
+  constructor(apiKey){
+    this.key = apiKey
+  }
+  getReports(){
+    getReports()
+  }
 }
+export default Guardian
