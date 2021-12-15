@@ -1,3 +1,6 @@
-import Guardian from "./index.js";
+import Guardian from "./index.js"
 let guard = new Guardian("apiKeyGoHere")
-guard.getReports("UserID")
+test()
+async function test(){
+  console.log(await guard.getReports("UserID"))
+}
