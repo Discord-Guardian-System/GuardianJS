@@ -18,6 +18,9 @@ class Guardian{
   async getLink(link){
     return await getLink(this.key, link);
   }
+  async getOffenses(userID){
+    return await getOffences(this.key, userID);
+  }
   async verify(){
     //TODO: ADD VERIFY CODE TO VERIFY API KEY
     this.verified = true || false;
