@@ -1,4 +1,5 @@
 import getReports from "./src/getReports.js"
+import getOffences from "./src/getOffences.js"
 class Guardian{
   constructor(apiKey){
     this.key = apiKey;
@@ -7,6 +8,9 @@ class Guardian{
   }
   async getReports(reportID){
     return await getReports(this.apiKey, reportID)
+  }
+  async getOffences(userID){
+    return await getOffences(this.apiKey, userID)
   }
   async verify(){
     //TODO: ADD VERIFY CODE TO VERIFY API KEY
