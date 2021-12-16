@@ -2,22 +2,21 @@ import getReports from "./src/getReport.js";
 import getOffences from "./src/getOffences.js";
 import getLink from "./src/getLink.js";
 class Guardian{
-  async constructor(apiKey){
-    this.key = apiKey;
+   constructor(apiKey){ 
+    const buff = Buffer.from(apiKey, 'utf-8');
+    const base64 = buff.toString('base64');
+    this.key = base64;
     this.verified = false;
-    await this.verify();
+    this.verify();
   }
   async getReports(reportID){
-    if(!this.verified)return console.log("You are unverified! If you inputted a valid token then try running guard.verify()!")
-    return await getReports(this.apiKey, reportID);
+    return await getReports(this.key, reportID);
   }
   async getOffences(userID){
-    if(!this.verified)return console.log("You are unverified! If you inputted a valid token then try running guard.verify()!")
-    return await getOffences(this.apiKey, userID);
+    return await getOffences(this.key, userID);
   }
   async getLink(link){
-    if(!this.verified)return console.log("You are unverified! If you inputted a valid token then try running guard.verify()!")
-    return await getLink(this.apiKey, link);
+    return await getLink(this.key, link);
   }
   async verify(){
     //TODO: ADD VERIFY CODE TO VERIFY API KEY
