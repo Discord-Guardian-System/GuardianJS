@@ -1,4 +1,4 @@
-import getReports from "./src/getReports.js"
+import getReports from "./src/getReport.js"
 import getOffences from "./src/getOffences.js"
 class Guardian{
   constructor(apiKey){
