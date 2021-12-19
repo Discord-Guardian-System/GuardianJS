@@ -10,24 +10,24 @@ class Guardian{
     this.verify();
   }
   async getReports(reportID){
-    return await getReports(this.key, reportID);
+    return (this.verified) ? await getReports(this.key, reportID) : new Error("Cannot request to the Guardian API with an invalid API token!")
   }
   async getOffences(userID){
-    return await getOffences(this.key, userID);
-  }
-  async getLink(link){
-    return await getLink(this.key, link);
+    return (this.verified) ? await getOffences(this.key, userID) : new Error("Cannot request to the Guardian API with an invalid API token!")
   }
   async getOffenses(userID){
-    return await getOffences(this.key, userID);
+    return (this.verified) ? await getOffences(this.key, userID) : new Error("Cannot request to the Guardian API with an invalid API token!")
+  }
+  async getLink(link){
+    return (this.verified) ? await getLink(this.key, link) : new Error("Cannot request to the Guardian API with an invalid API token!")
   }
   async getServer(server){
-    return await getServer(this.key, server)
+    return (this.verified) ? await getServer(this.key, server) : new Error("Cannot request to the Guardian API with an invalid API token!")
   }
   async verify(){
     //TODO: ADD VERIFY CODE TO VERIFY API KEY
-    this.verified = true || false;
-    if(this.verified = false)return console.log("INVALID API TOKEN PROVIDED FOR GuardianJS!")
+    this.verified = false;
+    if(!this.verified)return console.log("INVALID API TOKEN PROVIDED FOR GuardianJS!")
   }
 }
 export default Guardian;
